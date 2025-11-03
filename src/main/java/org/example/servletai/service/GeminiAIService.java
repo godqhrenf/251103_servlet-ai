@@ -7,7 +7,7 @@ public class GeminiAIService implements AIService {
     private final Client client;
 
     public GeminiAIService() {
-        Dotenv dotenv = Dotenv.load();
+        Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
         String apiKey = dotenv.get("GEMINI_API_KEY");
         client = Client.builder().apiKey(apiKey).build();
     }

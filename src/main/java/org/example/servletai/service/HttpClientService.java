@@ -17,7 +17,7 @@ public abstract class HttpClientService {
 
     protected HttpClientService(String baseUrl, String name) {
         BASE_URL = baseUrl;
-        Dotenv dotenv = Dotenv.load();
+        Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
         API_KEY = dotenv.get(name);
     }
 
